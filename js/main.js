@@ -34,11 +34,11 @@ const newGameBtn = document.getElementById("replay");
 
 lettersButton.forEach((letter) => {
   letter.addEventListener("click", handleLetterClick);
-  letter.disabled = "true";
 });
 
 newGameBtn.addEventListener("click", handleReplay);
 
+inIt();
 
 function inIt() {
   chosenCategory = CATEGORY[0];
@@ -52,7 +52,7 @@ function inIt() {
     .map((letter) => (correctGuesses.has(letter) ? letter : "_"))
     .join(" ");
 }
-inIt();
+inIt()
 console.log(hiddenWord);
 console.log(WORDS);
 
@@ -77,7 +77,11 @@ function showBodyPart(bodyPart) {
 function handleLetterClick(e) {
   let letter = e.target.textContent;
   console.log(`handleLetterClick: ${letter}`);
+
+  
+  
   if (!correctGuesses.has(letter)) {
+    e.target.disabled = "true";
     correctGuesses.add(letter);
     let userInput = hiddenWord
       .split("")
@@ -114,6 +118,7 @@ function handleLetterClick(e) {
       }
       if (incorrectGuesses === MAX_GUESSES) {
         gameEnds = true;
+        newGameBtn.style.display = "block";
         resultCon.textContent = "You Lost Try Again";
 
         if (resultCon.classList) {
@@ -132,10 +137,10 @@ function handleLetterClick(e) {
 function checkForWinner() {
   console.log(wordDisplay);
   if (incorrectGuesses === MAX_GUESSES) {
-    newGameBtn.style.display = "block";
+   
     return false;
   } else if (!wordDisplay.includes("_")) {
-    newGameBtn.style.display = "block";
+    
     return true;
   } else {
     return false;
@@ -146,3 +151,4 @@ function handleReplay() {
   gameEnds = false;
   inIt()
 }
+
