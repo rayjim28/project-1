@@ -16,7 +16,7 @@
   </head>
   <body>
     <h1>SpaceMan Game</h1>
-    <div class="game-container container-fade">
+    <div class="game-board">
       <div id="category-select"></div>
       <div id="word-display" class="word-display-hide show"></div>
       <div id="keyboard">
@@ -47,18 +47,30 @@
         <button class="alphabet">y</button>
         <button class="alphabet">z</button>
       </div>
-      <div id="spaceman">
-        <div id="head"></div>
-        <div id="body"></div>
-        <div id="left-arm"></div>
-        <div id="right-arm"></div>
-        <div id="left-leg"></div>
-        <div id="right-leg"></div>
-      </div>
-    <div id="result-container">
+      <!-- this portion from lines 51 - 68 I found here https://github.com/anandms101/Hangman/blob/master/index.html -->
+      <div class="spaceman-container"></div>
+      <svg height="250" width="200" class="spaceman-svg">
+        <!-- Rod -->
+        <line x1="60" y1="20" x2="140" y2="20" />
+        <line x1="140" y1="20" x2="140" y2="50" />
+        <line x1="60" y1="20" x2="60" y2="230" />
+        <line x1="20" y1="230" x2="100" y2="230" />
+
+        <!-- Head -->
+        <circle id="head" cx="140" cy="70" r="20" class="head" />
+        <!-- Body -->
+        <line id="body" x1="140" y1="90" x2="140" y2="150" class="body-part" />
+        <!-- Arms -->
+        <line id="left-arm" x1="140" y1="120" x2="120" y2="100" class="body-part" />
+        <line id="right-arm" x1="140" y1="120" x2="160" y2="100" class="body-part" />
+        <!-- Legs -->
+        <line id="left-leg" x1="140" y1="150" x2="120" y2="180" class="body-part" />
+        <line id="right-leg" x1="140" y1="150" x2="160" y2="180" class="body-part" />
+      </svg>
+      <div id="result-container">
         <div id="game-result"></div>
-    <button id="replay" style="display: none;">Play Again</button>
-    </div>
+        <button id="replay">Play Again</button>
+      </div>
     </div>
   </body>
 </html>

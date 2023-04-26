@@ -1,5 +1,46 @@
 * {
-    border: 1px solid black;
+    box-sizing: border-box;
     font-family: 'Sigmar', cursive;
-    text-align: center;
+
+}
+
+body {
+    background-color: rgba(155, 200, 25, 0.5);
+    color: rgba(0, 7, 80, 0.782);
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+h1 {
+    font-size: 60px;
+    margin: 0 0 20px 0;
+}
+
+
+
+.game-board {
+    padding: 20px 30px;
+    position: relative;
+    margin: auto;
+    height: 350px;
+    width: 450px;
+}
+
+.head {
+    display: none;
+}
+
+.body-part {
+    display: none;
+    color: red;
+}
+
+/* took lines 39-42 from https://github.com/anandms101/Hangman/blob/0d0352583c623b4422873399af3aaea5f1f8a637/style.css */
+.spaceman-svg {
+    fill: transparent;
+    stroke: black;
+    stroke-width: 4px;
+    stroke-linecap: round;
 }
