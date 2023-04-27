@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     
 }
 h1 {
@@ -24,24 +25,53 @@ h1 {
     padding: 20px 30px;
     position: relative;
     margin: auto;
-    height: 350px;
+    height: 500px;
     width: 450px;
 }
 
-.head {
-    display: none;
+#keyboard {
+    padding: 1.6em 2.2em;
+   border: 3px solid black;
+   
+   border-radius: 10px;
+   background-color: rgba(35, 0, 234, 0.567);
+   cursor: pointer;
 }
+
+.alphabet {
+    text-transform: capitalize;
+
+}
+
 
 .body-part {
     display: none;
-    color: red;
 }
 
-/* took lines 39-42 from https://github.com/anandms101/Hangman/blob/0d0352583c623b4422873399af3aaea5f1f8a637/style.css */
+.spaceman-container {
+    border: 1px solid black;
+    
+}
+
+ 
+/* took lines 40-46 from https://github.com/anandms101/Hangman/blob/0d0352583c623b4422873399af3aaea5f1f8a637/style.css */
 .spaceman-svg {
     fill: transparent;
     stroke: black;
     stroke-width: 4px;
     stroke-linecap: round;
 }
+
+#result-container {
+    border: 1px solid black;
+    text-align: center;
+}
+
+#replay {
+    display: block;
+    margin: 0 0 20px 0;
+    
+}
+
+
 
