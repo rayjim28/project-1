@@ -1,4 +1,4 @@
-// Define constants
+// Defined constants
 const CATEGORY = "planets";
 const WORDS = [
   "MERCURY",
@@ -13,13 +13,13 @@ const WORDS = [
 const MAX_GUESSES = 6;
 const ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// Define variables
+// Defined variables
 let hiddenWord;
 let correctGuesses;
 let incorrectGuesses;
 let gameEnds;
 
-// Define DOM elements
+// Defined DOM elements
 const wordDisplay = document.getElementById("word-display");
 const keyboard = document.getElementById("keyboard");
 const lettersButton = document.querySelectorAll(".alphabet");
@@ -35,7 +35,7 @@ lettersButton.forEach((letter) => {
 
 newGameBtn.addEventListener("click", handleReplay);
 
-// Function to initializes the game
+// Function to initialize the game
 function inIt() {
   correctGuesses = new Set();
   incorrectGuesses = 0;
@@ -72,7 +72,7 @@ function showBodyPart(bodyPart) {
   }
 }
 
-// This function handles user/player clicks on letter buttons
+// This function handles user/player clicks on letter buttons 
 function handleLetterClick(e) {
   let letter = e.target.textContent;
   if (!correctGuesses.has(letter)) {
@@ -87,7 +87,7 @@ function handleLetterClick(e) {
 
     wordDisplay.textContent = userInput;
 
-    // This checks if user/player has won
+    // Checks if user/player has won
     if (!userInput.includes("_")) {
       gameEnds = true;
       resultCon.textContent = "You Win!!, Great Job!";
