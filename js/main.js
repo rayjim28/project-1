@@ -1,3 +1,4 @@
+// Define constants
 const CATEGORY = "planets";
 const WORDS = [
   "MERCURY",
@@ -12,23 +13,19 @@ const WORDS = [
 const MAX_GUESSES = 6;
 const ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-let gameBoard = [];
-let chosenCategory;
+// Define variables
 let hiddenWord;
 let correctGuesses;
 let incorrectGuesses;
-let gameResults;
 let gameEnds;
 
-const categorySelected = document.getElementById("category-select");
+// Define DOM elements
 const wordDisplay = document.getElementById("word-display");
 const keyboard = document.getElementById("keyboard");
 const lettersButton = document.querySelectorAll(".alphabet");
 const spacemanSvg = document.getElementById("spaceman-container");
-// const head = document.querySelector(".head");
 const bodyParts = document.querySelectorAll(".body-part");
 const resultCon = document.getElementById("result-container");
-const gameMessage = document.getElementById("game-results");
 const newGameBtn = document.getElementById("replay");
 
 // Event listeners
@@ -38,23 +35,21 @@ lettersButton.forEach((letter) => {
 
 newGameBtn.addEventListener("click", handleReplay);
 
-inIt();
-
+// Function to initializes the game
 function inIt() {
-  chosenCategory = CATEGORY[0];
   correctGuesses = new Set();
   incorrectGuesses = 0;
 
   hiddenWord = WORDS[Math.floor(Math.random() * WORDS.length)];
 
+// This changes the initial display of the hidden word to underscores
   wordDisplay.textContent = hiddenWord
     .split("")
     .map((letter) => (correctGuesses.has(letter) ? letter : "_"))
     .join(" ");
 }
-console.log(hiddenWord);
-console.log(WORDS);
 
+// This function updates the SVG of the spaceman as incorrect guesses accumulate
 function UpdateSpaceman() {
   console.log("incorrectGuesses:", incorrectGuesses);
   console.log("bodyParts:", bodyParts);
@@ -66,9 +61,9 @@ function UpdateSpaceman() {
   }
 }
 
+// This function shows the appropriate body part of the spaceman when an incorrect guess is made by user/player
 function showBodyPart(bodyPart) {
-  console.log("showBodyPart called with: ", bodyPart);
-
+  // if the body part is the right leg and the number of incorrect guesses made by user/player is greater
   if (bodyPart === "right-leg" && incorrectGuesses >= MAX_GUESSES) {
     document.getElementById(bodyPart).style.display = "block";
   } else {
@@ -79,6 +74,7 @@ function showBodyPart(bodyPart) {
   }
 }
 
+// This function handles user/player clicks on letter buttons
 function handleLetterClick(e) {
   let letter = e.target.textContent;
   console.log(`handleLetterClick: ${letter}`);
@@ -91,10 +87,10 @@ function handleLetterClick(e) {
         correctGuesses.has(hiddenLetters) ? hiddenLetters : "_"
       )
       .join(" ");
-    console.log(userInput);
 
     wordDisplay.textContent = userInput;
 
+    // This checks if user/player has won
     if (!userInput.includes("_")) {
       gameEnds = true;
       resultCon.textContent = "You Win!!, Great Job!";
@@ -102,16 +98,21 @@ function handleLetterClick(e) {
       if (resultCon.classList) {
         resultCon.classList.add("you-win");
       }
+      
+      // Disable the letter buttons and show the play/reset button
       disableLetters();
       showPlayAgainBtn();
+
+      // If the user/player has not won, check if the user/player has made an incorrect guess
     } else if (!hiddenWord.includes(letter)) {
       ++incorrectGuesses;
       showBodyPart(`body-part-${incorrectGuesses}`);
 
+      // Checks if user/player has exceeded the maximum number of incorrect guesses allowed.
+      // If so, ends the game by displaying a message, disabling the letters, and showing the Play/Reset button
       if (incorrectGuesses >= MAX_GUESSES) {
         gameEnds = true;
-        resultCon.textContent = "You Lost Try Again";
-
+        resultCon.textContent = "You Lose, Try Again";
         if (resultCon.classList) {
           resultCon.classList.add("you-lose");
         }
@@ -122,10 +123,10 @@ function handleLetterClick(e) {
         UpdateSpaceman(incorrectGuesses);
       }
     }
-    console.log("userInput:", userInput);
   }
 }
 
+// Checks wether the user/player has correctly guessed all the letters in the hidden word or if user/player has exceeded the maximum guesses
 function checkForWinner() {
   console.log(wordDisplay);
   if (incorrectGuesses >= MAX_GUESSES) {
@@ -137,6 +138,7 @@ function checkForWinner() {
   }
 }
 
+// This function disables all the buttons corresponding to the letters
 function disableLetters() {
   lettersButton.forEach((button) => {
     if (!button.disabled) {
@@ -145,16 +147,14 @@ function disableLetters() {
   });
 }
 
+// This function displays the Play/Rest button and enables it for user/player click
 function showPlayAgainBtn() {
   newGameBtn.disabled = false;
   newGameBtn.style.display = "inline-block";
-  console.log('workkkkkkkkk')
 }
 
+// This function reloads the game when the user/player clicks on the Play/Reset button 
 function handleReplay() {
-  console.log("handleReplay called");
-  showPlayAgainBtn()
-  // gameEnds = false;
   // got location.reload() from stackOverflow https://stackoverflow.com/questions/65302198/how-to-reload-the-web-page-using-a-button-in-javascript
   location.reload();
   return false;

@@ -1,4 +1,4 @@
-# Planning For Spaceman Game
+# Spaceman Game 
 
 ## Analyzing the App's Functionality
 

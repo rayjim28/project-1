@@ -5,55 +5,67 @@
 }
 
 body {
-    background-color: rgba(155, 200, 25, 0.5);
-    color: rgba(0, 7, 80, 0.782);
+    background: linear-gradient(to right, rgba(35, 0, 234, 0.762), rgba(0, 255, 200, 0.865), rgba(35, 0, 234, 0.762));
+    color: rgba(35, 0, 234, 0.956);
     height: 85vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    
+
 }
+
 h1 {
     font-size: 60px;
     margin: 0 0 20px 0;
 }
 
-
+.planets {
+    font-size: 30px;
+    color: rgba(0, 26, 255, 0.936);
+    position: relative;
+    bottom: 30px;
+    
+    
+}
 
 .game-board {
     padding: 20px 30px;
-    position: relative;
-    margin: auto;
+    /* position: fixed; */
+    /* margin: 0, 0, 50px, 0; */
     height: 500px;
-    width: 450px;
+    width: 500px;
+    box-shadow:  0 10px 16px 0;
+    
 }
 
+
 #keyboard {
+    position: relative;
     padding: 1.6em 2.2em;
-   border: 3px solid black;
-   
-   border-radius: 10px;
-   background-color: rgba(35, 0, 234, 0.567);
-   cursor: pointer;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: rgba(35, 0, 234, 0.567);
+    cursor: pointer;
 }
 
 .alphabet {
-    text-transform: capitalize;
-
+    width: 15%;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 
+.alphabet:hover {
+    background-color: black;
+    cursor: pointer;
+    color: whitesmoke;
+
+}
 
 .body-part {
     display: none;
 }
 
-.spaceman-container {
-    border: 1px solid black;
-    
-}
-
- 
 /* took lines 40-46 from https://github.com/anandms101/Hangman/blob/0d0352583c623b4422873399af3aaea5f1f8a637/style.css */
 .spaceman-svg {
     fill: transparent;
@@ -63,15 +75,26 @@ h1 {
 }
 
 #result-container {
-    border: 1px solid black;
     text-align: center;
+    position: fixed; top: 20%; left: 20px; right: 20px;
+    font-size: 20px;
+    
 }
 
 #replay {
     display: block;
-    margin: 0 0 20px 0;
-    
+    position: relative; top: 30px;
+    font-size: 20px;
+    box-shadow: 0 10px 16px 0;
+    cursor: pointer;
+    background: linear-gradient(to right, rgba(35, 0, 234, 0.762), rgba(0, 255, 200, 0.865));
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
-
-
+#replay:hover {
+    box-shadow: 0 10px 20px 0;
+    background-color: blanchedalmond;
+    color: blanchedalmond;
+    border-radius: 5px;
+}
