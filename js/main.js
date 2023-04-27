@@ -42,7 +42,7 @@ function inIt() {
 
   hiddenWord = WORDS[Math.floor(Math.random() * WORDS.length)];
 
-// This changes the initial display of the hidden word to underscores
+  // This changes the initial display of the hidden word to underscores
   wordDisplay.textContent = hiddenWord
     .split("")
     .map((letter) => (correctGuesses.has(letter) ? letter : "_"))
@@ -51,8 +51,6 @@ function inIt() {
 
 // This function updates the SVG of the spaceman as incorrect guesses accumulate
 function UpdateSpaceman() {
-  console.log("incorrectGuesses:", incorrectGuesses);
-  console.log("bodyParts:", bodyParts);
   for (let i = 0; i < bodyParts.length - 1; i++) {
     const bodyPart = bodyParts[i];
     if (bodyPart && i < incorrectGuesses) {
@@ -77,7 +75,6 @@ function showBodyPart(bodyPart) {
 // This function handles user/player clicks on letter buttons
 function handleLetterClick(e) {
   let letter = e.target.textContent;
-  console.log(`handleLetterClick: ${letter}`);
   if (!correctGuesses.has(letter)) {
     e.target.disabled = true;
     correctGuesses.add(letter);
@@ -98,10 +95,9 @@ function handleLetterClick(e) {
       if (resultCon.classList) {
         resultCon.classList.add("you-win");
       }
-      
+
       // Disable the letter buttons and show the play/reset button
       disableLetters();
-      showPlayAgainBtn();
 
       // If the user/player has not won, check if the user/player has made an incorrect guess
     } else if (!hiddenWord.includes(letter)) {
@@ -118,7 +114,6 @@ function handleLetterClick(e) {
         }
         wordDisplay.textContent = hiddenWord;
         disableLetters();
-        showPlayAgainBtn();
       } else {
         UpdateSpaceman(incorrectGuesses);
       }
@@ -147,13 +142,7 @@ function disableLetters() {
   });
 }
 
-// This function displays the Play/Rest button and enables it for user/player click
-function showPlayAgainBtn() {
-  newGameBtn.disabled = false;
-  newGameBtn.style.display = "inline-block";
-}
-
-// This function reloads the game when the user/player clicks on the Play/Reset button 
+// This function reloads the game when the user/player clicks on the Play/Reset button
 function handleReplay() {
   // got location.reload() from stackOverflow https://stackoverflow.com/questions/65302198/how-to-reload-the-web-page-using-a-button-in-javascript
   location.reload();
