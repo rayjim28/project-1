@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(to right, rgba(35, 0, 234, 0.762), rgba(0, 255, 200, 0.865), rgba(35, 0, 234, 0.762));
+    background: linear-gradient(to right, rgba(58, 24, 251, 0.762), rgba(0, 255, 200, 0.865), rgba(35, 0, 234, 0.387));
     color: rgba(35, 0, 234, 0.956);
     height: 85vh;
     display: flex;
@@ -20,23 +20,24 @@ h1 {
     margin: 0 0 20px 0;
 }
 
+#word-display {
+    font-size: 30px;
+    color: black;
+}
+
 .planets {
     font-size: 30px;
     color: rgba(0, 26, 255, 0.936);
     position: relative;
     bottom: 30px;
-    
-    
 }
 
 .game-board {
     padding: 20px 30px;
-    /* position: fixed; */
-    /* margin: 0, 0, 50px, 0; */
     height: 500px;
     width: 500px;
-    box-shadow:  0 10px 16px 0;
-    
+    box-shadow: 0 10px 16px 0;
+    border-radius: 8px;
 }
 
 
@@ -59,31 +60,34 @@ h1 {
     background-color: black;
     cursor: pointer;
     color: whitesmoke;
-
 }
 
 .body-part {
     display: none;
 }
 
-/* took lines 40-46 from https://github.com/anandms101/Hangman/blob/0d0352583c623b4422873399af3aaea5f1f8a637/style.css */
+/* took lines 71-74 from https://github.com/anandms101/Hangman/blob/0d0352583c623b4422873399af3aaea5f1f8a637/style.css */
 .spaceman-svg {
     fill: transparent;
     stroke: black;
-    stroke-width: 4px;
+    stroke-width: 6px;
     stroke-linecap: round;
 }
 
 #result-container {
     text-align: center;
-    position: fixed; top: 20%; left: 20px; right: 20px;
-    font-size: 20px;
-    
+    position: fixed;
+    top: 20%;
+    left: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: black;
 }
 
 #replay {
     display: block;
-    position: relative; top: 30px;
+    position: relative;
+    top: 30px;
     font-size: 20px;
     box-shadow: 0 10px 16px 0;
     cursor: pointer;

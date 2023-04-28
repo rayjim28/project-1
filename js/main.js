@@ -72,8 +72,9 @@ function showBodyPart(bodyPart) {
   }
 }
 
-// This function handles user/player clicks on letter buttons 
+// This function handles the click event when the user/player is playing the game 
 function handleLetterClick(e) {
+  // It takes the letter that was clicked and stores it in the variable letter
   let letter = e.target.textContent;
   if (!correctGuesses.has(letter)) {
     e.target.disabled = true;
@@ -105,7 +106,7 @@ function handleLetterClick(e) {
       showBodyPart(`body-part-${incorrectGuesses}`);
 
       // Checks if user/player has exceeded the maximum number of incorrect guesses allowed.
-      // If so, ends the game by displaying a message, disabling the letters, and showing the Play/Reset button
+      // If so, ends the game by displaying a message, and disabling the letters 
       if (incorrectGuesses >= MAX_GUESSES) {
         gameEnds = true;
         resultCon.textContent = "You Lose, Try Again";
