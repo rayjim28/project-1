@@ -8,13 +8,13 @@ The user enters their guesses by clicking the letters on the screen. As each let
 ## Screenshots
 
 ### Initial State
-![initial state](image/initial_state.png)
+![Imgur](https://i.imgur.com/ppbxGtql.png)
 
 ## Winning state
-![winning state](image/winning_state.png)
+![Imgur](https://i.imgur.com/ppbxGtql.png)
 
 ## Loosing State
-![loosing state](image/loosing_state.png)
+![Imgur](https://i.imgur.com/ppbxGtql.png)
 
 # Technologies Used
 - HTML
